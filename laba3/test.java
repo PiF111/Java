@@ -16,10 +16,10 @@ public class test implements var03 {
             System.out.println("Сумма " + (d2 + d3));
     }
     public void poka(double N) {
-        int k=1;
-        int summ=0;
+        double k=1;
+        double summ=0;
         while (summ<N){
-           summ+=k; k++;
+           summ+=1/k; k++;
         }
         k--;
         System.out.println("Наибольшее целое " + k);
