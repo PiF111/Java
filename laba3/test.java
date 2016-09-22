@@ -21,7 +21,6 @@ public class test implements var03 {
         while (summ<N){
            summ+=1/k; k++;
         }
-        k--;
         System.out.println("Наибольшее целое " + k);
         System.out.println("Сумма " + summ);
     }
