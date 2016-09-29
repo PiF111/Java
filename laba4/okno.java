@@ -10,15 +10,29 @@ import java.awt.event.ActionListener;
     public class okno extends JFrame {
         private int count = 0;
 
+        public JButton button, button1;
         private JTextField fio = new JTextField(20);
         private JLabel metka = new JLabel("Ваше имя?");
         private JLabel metkaDva = new JLabel("");
         private JLabel metkaTri = new JLabel("");
+        private boolean state = false;
+
+        void move(){
+            if(state) {
+                button.setLocation(65, 60);
+                button1.setLocation(65, 100);
+            }
+            else {
+                button.setLocation(65, 100);
+                button1.setLocation(65, 60);
+            }
+            state = !state;
+        }
 
         class PushingListener implements ActionListener {
             public void actionPerformed(ActionEvent e){
                 Object button = e.getSource();
-
+                move();
                 if(button instanceof JButton){
                     count++;
                     //((JButton)button).setText("Нажато " + count + " раз");
@@ -31,7 +45,6 @@ import java.awt.event.ActionListener;
         class BAT implements ActionListener {
             public void actionPerformed(ActionEvent e){
                 Object button1= e.getSource();
-
                 if (button1 instanceof JButton){
                     setSize(500, 500);
                 }
@@ -45,12 +58,10 @@ import java.awt.event.ActionListener;
         }
 
         private void SozdatxOkno(){
-
-            JButton button = new JButton(" Нажми меня! ");
+            button = new JButton(" Нажми меня! ");
             button.setBounds(65,60,150,40);
             button.addActionListener(new PushingListener());
-
-            JButton button1 = new JButton(" Кнопка ");
+            button1 = new JButton(" Кнопка ");
             button1.setBounds(65,100,150,40);
             button1.addActionListener(new BAT());
 
